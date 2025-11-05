@@ -369,23 +369,18 @@ function addClickableLinkFooter() {
       ul.querySelectorAll("li").forEach((li, index) => {
         const a = li.querySelector("a");
         if (a) {
-          a.addEventListener("click", (event) => {
-            event.preventDefault();
-            if (index == 0) {
-              window.location.href =
-                "https://renaissanceboutiques.ie/products/search";
-            }
-            if (index == 1) {
-              window.location.href = "https://renaissanceboutiques.ie/products";
-            }
-            if (index == 2) {
-              window.location.href = "https://renaissanceboutiques.ie/products";
-            }
-            if (index == 3) {
-              window.location.href =
-                "https://renaissanceboutiques.ie/size-chart";
-            }
-          });
+          if (index == 0) {
+            a.href = "https://renaissanceboutiques.ie/products/search";
+          }
+          if (index == 1) {
+            a.href = "https://renaissanceboutiques.ie/products";
+          }
+          if (index == 2) {
+            a.href = "https://renaissanceboutiques.ie/products";
+          }
+          if (index == 3) {
+            a.href = "https://renaissanceboutiques.ie/size-chart";
+          }
         }
       });
     }
