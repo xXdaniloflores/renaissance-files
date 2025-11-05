@@ -369,8 +369,8 @@ function addGoogleReviewToHomePage() {
   }
 }
 
-function addClickableLinkFooter() {
-  const footer = document.getElementById("tile-custom-S6JiRL");
+function addClickableLinkFooter(elementId) {
+  const footer = document.getElementById(elementId);
   if (!footer) return;
 
   footer.querySelectorAll("ul").forEach((ul, ulIndex) => {
