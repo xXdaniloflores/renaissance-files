@@ -363,29 +363,47 @@ function addClickableLinkFooter() {
   const footer = document.getElementById("tile-custom-S6JiRL");
   if (!footer) return;
 
-  footer.querySelectorAll("ul").forEach((ul, i) => {
-    // Shop links
-    if (i == 0) {
-      ul.querySelectorAll("li").forEach((li, index) => {
-        const a = li.querySelector("a");
-        if (a) {
-          if (index == 0) {
-            a.href = "https://renaissanceboutiques.ie/products/search";
-          }
-          if (index == 1) {
-            a.href = "https://renaissanceboutiques.ie/products";
-          }
-          if (index == 2) {
-            a.href = "https://renaissanceboutiques.ie/products";
-          }
-          if (index == 3) {
-            a.href = "https://renaissanceboutiques.ie/size-chart";
-          }
+  footer.querySelectorAll("ul").forEach((ul, ulIndex) => {
+    ul.querySelectorAll("li").forEach((li, index) => {
+      const a = li.querySelector("a");
+      if (!a) return;
+
+      // Shop links
+      if (ulIndex == 0) {
+        if (index == 0) {
+          a.href = "https://renaissanceboutiques.ie/products/search";
         }
-      });
-    }
-    // Info links
-    else if (i == 1) {
-    }
+        if (index == 1) {
+          a.href = "https://renaissanceboutiques.ie/products";
+        }
+        if (index == 2) {
+          a.href = "https://renaissanceboutiques.ie/products";
+        }
+        if (index == 3) {
+          a.href = "https://renaissanceboutiques.ie/size-chart";
+        }
+      }
+      // Info links
+      else if (ulIndex == 1) {
+        if (index == 0) {
+          a.href = "https://renaissanceboutiques.ie/locations";
+        }
+        if (index == 1) {
+          a.href = "https://renaissanceboutiques.ie/about";
+        }
+        if (index == 2) {
+          a.href = "https://renaissanceboutiques.ie/delivery";
+        }
+        if (index == 3) {
+          a.href = "https://renaissanceboutiques.ie/locations";
+        }
+        if (index == 4) {
+          a.href = "https://renaissanceboutiques.ie/delivery";
+        }
+        if (index == 5) {
+          a.href = "https://renaissanceboutiques.ie/privacy";
+        }
+      }
+    });
   });
 }
