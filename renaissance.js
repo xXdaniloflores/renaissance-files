@@ -3,6 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // addFooterToAllPage();
   // Add carousel to home page only
   // addGoogleReviewToHomePage();
+
+  // Add clickable link to footer
+  addClickableLinkFooter();
 });
 
 function addFooterToAllPage() {
@@ -354,4 +357,40 @@ function addGoogleReviewToHomePage() {
       .getElementsByClassName("unknown-right")[0]
       .addEventListener("click", nextSlide);
   }
+}
+
+function addClickableLinkFooter() {
+  const footer = document.getElementById("tile-custom-S6JiRL");
+  if (!footer) return;
+
+  footer.querySelectorAll("ul").forEach((ul, i) => {
+    // Shop links
+    if (i == 0) {
+      ul.querySelectorAll("li").forEach((li, index) => {
+        const a = li.querySelector("a");
+        if (a) {
+          a.addEventListener("click", (event) => {
+            event.preventDefault();
+            if (index == 0) {
+              window.location.href =
+                "https://renaissanceboutiques.ie/products/search";
+            }
+            if (index == 1) {
+              window.location.href = "https://renaissanceboutiques.ie/products";
+            }
+            if (index == 2) {
+              window.location.href = "https://renaissanceboutiques.ie/products";
+            }
+            if (index == 3) {
+              window.location.href =
+                "https://renaissanceboutiques.ie/size-chart";
+            }
+          });
+        }
+      });
+    }
+    // Info links
+    else if (i == 1) {
+    }
+  });
 }
