@@ -5,7 +5,17 @@ document.addEventListener("DOMContentLoaded", () => {
   // addGoogleReviewToHomePage();
 
   // Add clickable link to footer
-  addClickableLinkFooter();
+  const footerList = [
+    "tile-custom-S6JiRL",
+    "tile-custom-59U893",
+    "tile-custom-ypMYwj",
+    "tile-custom-y6fF9V",
+    "tile-custom-aVojcf",
+    "tile-custom-PHVpRB",
+    "tile-custom-88RysC",
+    "tile-custom-iroHUC",
+  ];
+  footerList.forEach((id) => addClickableLinkFooter(id));
 });
 
 function addFooterToAllPage() {
