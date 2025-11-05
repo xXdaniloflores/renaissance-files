@@ -1,15 +1,14 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Add footer to all pages
-    addFooterToAllPage();
-    
-    // Add carousel to home page only
-    // addGoogleReviewToHomePage();
+document.addEventListener("DOMContentLoaded", () => {
+  // Add footer to all pages
+  // addFooterToAllPage();
+  // Add carousel to home page only
+  // addGoogleReviewToHomePage();
 });
 
 function addFooterToAllPage() {
-    const mainDiv = document.getElementById('tile-footer-MNure7');
-    if (document.getElementById('unknown-footer-links')) return;
-    const footerHtml = `
+  const mainDiv = document.getElementById("tile-footer-MNure7");
+  if (document.getElementById("unknown-footer-links")) return;
+  const footerHtml = `
         <div id="unknown-footer-links-wrapper" class="unknown-footer-links-wrapper">
             <div id="unknown-footer-links" class="unknown-footer-links" aria-label="Footer links">
                 <div class="unknown-column">
@@ -54,14 +53,14 @@ function addFooterToAllPage() {
             </div>
         </div>
     `;
-    mainDiv.insertAdjacentHTML('beforebegin', footerHtml);
+  mainDiv.insertAdjacentHTML("beforebegin", footerHtml);
 }
 
 function addGoogleReviewToHomePage() {
-    // var targetDiv = document.getElementById("unknown-footer-links");
-    var targetDiv = document.getElementById("tile-image-text-xTecMv");
-    if (targetDiv) {
-        const googleReviewHtml = `
+  // var targetDiv = document.getElementById("unknown-footer-links");
+  var targetDiv = document.getElementById("tile-image-text-xTecMv");
+  if (targetDiv) {
+    const googleReviewHtml = `
             <div class="unknown-carousel-wrapper">
                 <div>
                     <h2>GOOD</h2>
@@ -307,48 +306,52 @@ function addGoogleReviewToHomePage() {
                 </div>
             </div>
         `;
-        targetDiv.insertAdjacentHTML('afterend', googleReviewHtml);
+    targetDiv.insertAdjacentHTML("afterend", googleReviewHtml);
 
-        let currentIndex = 0;
-        const carousel = document.getElementById('unknown-carousel');
-        const cards = document.querySelectorAll('.unknown-review-card');
-        const container = document.querySelector('.unknown-carousel-container');
-        
-        function getCardWidth() {
-            const card = cards[0];
-            const cardStyle = window.getComputedStyle(card);
-            const width = card.offsetWidth;
-            const marginRight = parseFloat(cardStyle.marginRight) || 0;
-            return width + marginRight;
-        }
-        
-        function updateCarousel() {
-            const cardWidth = getCardWidth();
-            const containerWidth = container.offsetWidth;
-            const visibleCards = Math.floor(containerWidth / cardWidth);
-            const maxIndex = Math.max(0, cards.length - visibleCards); // important
-            
-            // Prevent overscrolling
-            if (currentIndex > maxIndex) currentIndex = maxIndex;
-            if (currentIndex < 0) currentIndex = 0;
-            
-            const offset = -(currentIndex * cardWidth);
-            carousel.style.transform = `translateX(${offset}px)`;
-        }
-        
-        function nextSlide() {
-            currentIndex++;
-            updateCarousel();
-        }
-        
-        function prevSlide() {
-            currentIndex--;
-            updateCarousel();
-        }
-        
-        window.addEventListener('resize', updateCarousel);
-        window.addEventListener('load', updateCarousel);
-        document.getElementsByClassName('unknown-left')[0].addEventListener('click', prevSlide);    
-        document.getElementsByClassName('unknown-right')[0].addEventListener('click', nextSlide);
+    let currentIndex = 0;
+    const carousel = document.getElementById("unknown-carousel");
+    const cards = document.querySelectorAll(".unknown-review-card");
+    const container = document.querySelector(".unknown-carousel-container");
+
+    function getCardWidth() {
+      const card = cards[0];
+      const cardStyle = window.getComputedStyle(card);
+      const width = card.offsetWidth;
+      const marginRight = parseFloat(cardStyle.marginRight) || 0;
+      return width + marginRight;
     }
+
+    function updateCarousel() {
+      const cardWidth = getCardWidth();
+      const containerWidth = container.offsetWidth;
+      const visibleCards = Math.floor(containerWidth / cardWidth);
+      const maxIndex = Math.max(0, cards.length - visibleCards); // important
+
+      // Prevent overscrolling
+      if (currentIndex > maxIndex) currentIndex = maxIndex;
+      if (currentIndex < 0) currentIndex = 0;
+
+      const offset = -(currentIndex * cardWidth);
+      carousel.style.transform = `translateX(${offset}px)`;
+    }
+
+    function nextSlide() {
+      currentIndex++;
+      updateCarousel();
+    }
+
+    function prevSlide() {
+      currentIndex--;
+      updateCarousel();
+    }
+
+    window.addEventListener("resize", updateCarousel);
+    window.addEventListener("load", updateCarousel);
+    document
+      .getElementsByClassName("unknown-left")[0]
+      .addEventListener("click", prevSlide);
+    document
+      .getElementsByClassName("unknown-right")[0]
+      .addEventListener("click", nextSlide);
+  }
 }
